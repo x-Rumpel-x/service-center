@@ -1,0 +1,77 @@
+@font-face {
+    font-family: JHCSineas-Extraligiht;
+url('/static/admin/fonts/ShareTechMonoRegular.ttf') format('truetype');
+}
+
+body {
+    font-family: 'JHCSineas-Extraligiht', serif !important;
+}
+
+.form-login-logo {
+    font-weight: bold;
+}
+
+/* 4K и огромные экраны */
+@media (min-width: 2560px) {
+
+}
+
+/* Большие десктопы */
+@media (min-width: 1920px) {
+
+}
+
+/* Средние десктопы */
+@media (min-width: 1280px) {
+
+}
+
+/* Ноутбуки и маленькие десктопы */
+@media (min-width: 1024px) {
+
+}
+
+/* Планшеты (альбомная ориентация) */
+@media (min-width: 768px) and (max-width: 1024px) {
+
+}
+
+/* Особые стили для вертикальных мобильных устройств */
+@media (max-width: 768px) and (orientation: portrait) {
+    .form-login {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 400px;
+        width: 100vw;
+        text-align: center;
+        align-content: center;
+    }
+
+    .form-login-logo {
+        font-size: 24px;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    .form-login-input {
+        width: 100%;
+        height: 200px;
+        background: #202747;
+        -webkit-appearance: none;
+        margin: 10px 0;
+    }
+
+    .auth-form {
+        padding: 30px;
+    }
+
+    .form-group {
+        padding: 5px 0;
+    }
+
+    input {
+        width: 300px;
+        height: 40px;
+    }
+}

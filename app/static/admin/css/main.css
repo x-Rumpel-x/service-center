@@ -1,0 +1,161 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header {
+    background: #f6f6f8;
+    height: 50px;
+    position: absolute;
+    right: 0;
+    padding: 0 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.header-right {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-content: center;
+    align-items: center;
+}
+
+.notification-block {
+    width: 25px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.header-menu-icon {
+    width: 25px;
+    height: 25px;
+}
+
+.user-avatar {
+    height: 35px;
+    width: 35px;
+    background: #202747;
+    border-radius: 100%;
+}
+
+.left-nav {
+    -webkit-appearance: none;
+    position: absolute;
+    background: #191970;
+    height: 100%;
+}
+
+.menu {
+    color: #808080FF;
+}
+
+.main-menu {
+    position: absolute;
+    left: 8px;
+    top: 0;
+}
+
+.logo {
+    margin: -8px -16px 10px;
+}
+
+.nav {
+    margin: -16px;
+    touch-action: manipulation;
+}
+
+.menu-icon {
+    width: 30px;
+}
+
+.logout {
+    position: absolute;
+    left: 8px;
+    bottom: 15px;
+}
+
+.logout-btn {
+    transform: rotate(180deg);
+}
+
+.content {
+    position: absolute;
+    right: 0;
+    top: 50px;
+    background: #f6f6f8;
+    padding: 10px;
+}
+
+/* 4K и огромные экраны */
+@media (min-width: 2560px) {
+
+}
+
+/* Большие десктопы */
+@media (min-width: 1920px) {
+
+}
+
+/* Средние десктопы */
+@media (min-width: 1280px) {
+
+}
+
+/* Ноутбуки и маленькие десктопы */
+@media (min-width: 1024px) {
+    .header {
+        width: 100vw;
+    }
+}
+
+/* Планшеты (альбомная ориентация) */
+@media (min-width: 768px) and (max-width: 1024px) {
+
+}
+
+/* Особые стили для вертикальных мобильных устройств */
+@media (max-width: 768px) and (orientation: portrait) {
+    .header {
+        width: calc(100vw - 50px);
+    }
+
+    .notification-block {
+        margin-top: 2px;
+    }
+
+    .badge {
+        height: 12px;
+        width: 12px;
+        padding: 3px !important;
+        margin: -4px -6px;
+        font-size: 8px !important;
+    }
+
+    .left-nav {
+        width: 50px;
+    }
+
+    .menu {
+        width: 30px;
+    }
+
+    .left-menu-text {
+        display: none;
+    }
+
+    .content {
+        width: calc(100% - 50px);
+        height: calc(100% - 50px);
+    }
+
+    .grafana {
+        width: 100%;
+        height: 200px;
+    }
+}
