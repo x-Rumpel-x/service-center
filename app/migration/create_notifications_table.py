@@ -11,8 +11,8 @@ def create_notifications_table():
                 CREATE TABLE IF NOT EXISTS notifications (
                     id INT AUTO_INCREMENT PRIMARY KEY,
                     notification TEXT NOT NULL,
-                    to JSON NOT NULL,
-                    check_it JSON NOT NULL                                     
+                    to_user TEXT NOT NULL,
+                    check_it TEXT NOT NULL                                     
                 );
             """)
             connection.commit()
