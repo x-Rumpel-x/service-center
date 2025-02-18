@@ -1,11 +1,15 @@
-{% extends 'admin/base.html' %}
+{% extends 'ceo_dashboard.html' %}
 
 {% block head %}
-
+    {{ super() }}
 {% endblock %}
 
 {% block title %} Dashboard {% endblock %}
 
 {% block body %}
-<iframe src="http://grafana.panelops.ru/d-solo/de9kwlevcdnggb/use?orgId=1&timezone=browser&theme=light&panelId=1&__feature.dashboardSceneSolo" class="grafana" frameborder="0"></iframe>
+    {% if current_user.role == 4 %}
+        {% block ceo_content %}
+            {{ super() }}
+        {% endblock %}
+    {% endif %}
 {% endblock %}

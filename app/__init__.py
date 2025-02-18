@@ -4,7 +4,7 @@ from flask import Flask
 from flask_login import LoginManager
 from dotenv import load_dotenv
 
-from .models.staff.staff import get_staff_by_id
+from app.models.staff import get_staff_by_id
 
 from app.migration.make_migrations import make_migrations
 

@@ -19,7 +19,11 @@
 <body>
 <main>
     <div class="header">
-        <span id="clock">--:--</span>
+        <div class="clock">
+            <span id="date"></span>
+            <span id="weekday"></span>
+            <span id="clock"></span>
+        </div>
         <div class="header-right">
             <div class="notification-block">
                 <img class="header-menu-icon" src="{{ url_for('static', filename='admin/img/icons/bell.svg') }}" alt="">
@@ -32,7 +36,10 @@
     </div>
     <div class="left-nav">
         <div class="left-menu menu main-menu">
-            <img class="logo" src="{{ url_for('static', filename='admin/img/icons/logo.svg') }}" alt="">
+            <div class="block-logo">
+                <img class="logo" src="{{ url_for('static', filename='admin/img/icons/logo.svg') }}" alt="">
+                <span class="logo-text">Гарант Сервис&#8482</span>
+            </div>
             <ul class="nav nav-pills flex-column mb-auto">
                 <li class="nav-item">
                     <a href="/dashboard"
@@ -57,11 +64,46 @@
                     </a>
                 </li>
                 {% endif %}
+                {% if current_user.role >= 4 %}
+                <li class="nav-item">
+                    <a href="/dashboard"
+                       class="nav-link link-body-emphasis {{ 'active' if request.path == '/dashboard' else '' }}">
+                        <img class="menu-icon" src="{{ url_for('static', filename='admin/img/icons/main-warehouse.svg') }}" alt="">
+                        <span class="left-menu-text">Общий склад</span>
+                    </a>
+                </li>
+                {% endif %}
+                {% if current_user.role >= 3 %}
+                <li class="nav-item">
+                    <a href="/dashboard"
+                       class="nav-link link-body-emphasis {{ 'active' if request.path == '/dashboard' else '' }}">
+                        <img class="menu-icon" src="{{ url_for('static', filename='admin/img/icons/people-add.svg') }}" alt="">
+                        <span class="left-menu-text">Регистрация сотрудника</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/dashboard"
+                       class="nav-link link-body-emphasis {{ 'active' if request.path == '/dashboard' else '' }}">
+                        <img class="menu-icon" src="{{ url_for('static', filename='admin/img/icons/people.svg') }}" alt="">
+                        <span class="left-menu-text">Управление персоналом</span>
+                    </a>
+                </li>
+                {% endif %}
+                {% if current_user.role >= 4 %}
+                <li class="nav-item">
+                    <a href="/dashboard"
+                       class="nav-link link-body-emphasis {{ 'active' if request.path == '/dashboard' else '' }}">
+                        <img class="menu-icon" src="{{ url_for('static', filename='admin/img/icons/office.svg') }}" alt="">
+                        <span class="left-menu-text">Регистрация офиса</span>
+                    </a>
+                </li>
+                {% endif %}
             </ul>
         </div>
         <div class="logout menu">
-            <img class="logout-btn" src="{{ url_for('static', filename='admin/img/icons/logout.svg') }}" alt="">
-            <span class="left-menu-text">Выход</span>
+            <a href="/logout" class="nav-link link-body-emphasis">
+                <img class="logout-btn" src="{{ url_for('static', filename='admin/img/icons/logout.svg') }}" alt="">
+            </a>
         </div>
     </div>
     <div class="content">

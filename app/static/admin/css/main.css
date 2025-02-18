@@ -15,6 +15,10 @@
     align-content: center;
 }
 
+.clock {
+    border-bottom: black 1px solid;
+}
+
 .header-right {
     position: absolute;
     top: 8px;
@@ -47,8 +51,18 @@
 .left-nav {
     -webkit-appearance: none;
     position: absolute;
-    background: #191970;
+    background: #ffffff;
     height: 100%;
+    -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    z-index: 2;
+}
+
+.block-logo {
+    display: flex;
+    flex-wrap: nowrap;
+    color: black !important;
 }
 
 .menu {
@@ -59,10 +73,6 @@
     position: absolute;
     left: 8px;
     top: 0;
-}
-
-.logo {
-    margin: -8px -16px 10px;
 }
 
 .nav {
@@ -90,6 +100,7 @@
     top: 50px;
     background: #f6f6f8;
     padding: 10px;
+    height: calc(100% - 50px);
 }
 
 /* 4K и огромные экраны */
@@ -110,7 +121,59 @@
 /* Ноутбуки и маленькие десктопы */
 @media (min-width: 1024px) {
     .header {
-        width: 100vw;
+        width: calc(100vw - 250px);
+    }
+
+    .notification-block {
+        margin-top: 6px;
+    }
+
+    .badge {
+        height: 14px;
+        width: 14px;
+        padding: 1.5px !important;
+        margin: -10px -8px;
+        font-size: 10px !important;
+    }
+
+    .left-nav {
+        width: 250px;
+    }
+
+    .logo {
+        width: 80px !important;
+        height: 80px !important;
+        margin: -4px 0 25px -25px;
+    }
+
+    .logo-text {
+        display: flex;
+        flex: none;
+        margin-top: 22px;
+        font-size: large;
+    }
+
+    .menu {
+        width: 30px;
+    }
+
+    .nav-link {
+        display: flex !important;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .left-menu-text {
+        flex: none;
+    }
+
+    .content {
+        width: calc(100% - 250px);
+    }
+
+    .grafana {
+        width: 100%;
+        height: 200px;
     }
 }
 
@@ -141,6 +204,16 @@
         width: 50px;
     }
 
+    .logo {
+        width: 60px !important;
+        height: 60px !important;
+        margin: 2px 0 20px -16px;
+    }
+
+    .logo-text {
+        display: none;
+    }
+
     .menu {
         width: 30px;
     }
@@ -151,7 +224,6 @@
 
     .content {
         width: calc(100% - 50px);
-        height: calc(100% - 50px);
     }
 
     .grafana {
