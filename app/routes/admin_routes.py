@@ -1,5 +1,3 @@
-import locale
-
 from flask import Blueprint, render_template, request, redirect, url_for, flash, jsonify
 from flask_login import login_required, login_user, logout_user
 from passlib.hash import bcrypt

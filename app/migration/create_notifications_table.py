@@ -2,17 +2,17 @@ from mysql.connector import Error
 from ..utils import get_db_connection
 
 
-def create_stats_table():
+def create_notifications_table():
     connection = get_db_connection()
     if connection:
         try:
             cursor = connection.cursor()
             cursor.execute("""
-                CREATE TABLE IF NOT EXISTS stats (
+                CREATE TABLE IF NOT EXISTS notifications (
                     id INT AUTO_INCREMENT PRIMARY KEY,
-                    profit INT DEFAULT 0,
-                    order_completed INT DEFAULT 0,
-                    made_sales INT DEFAULT 0                    
+                    notification TEXT NOT NULL,
+                    to JSON NOT NULL,
+                    check_it JSON NOT NULL                                     
                 );
             """)
             connection.commit()
