@@ -14,10 +14,9 @@ login_manager.login_view = 'admin.login'
 
 
 def create_app():
+    load_dotenv(dotenv_path='.env')
     app = Flask(__name__)
     app.secret_key = os.getenv('SECRET_KEY', 'your_secret_key')
-
-    load_dotenv(dotenv_path='.env')
 
     # Инициализация расширений
     login_manager.init_app(app)
@@ -28,7 +27,5 @@ def create_app():
     # Регистрация блюпринтов
     from .routes.admin_routes import admin_bp
     app.register_blueprint(admin_bp)
-
-    make_migrations()
 
     return app

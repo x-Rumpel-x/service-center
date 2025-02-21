@@ -5,6 +5,7 @@ from passlib.hash import bcrypt
 from app.models.staff import get_staff_by_username
 from app.models.systems import get_remote_ip
 from app.models.systems import get_time
+from app.migration.make_migrations import make_migrations
 
 admin_bp = Blueprint('admin', __name__, template_folder='../templates/admin')
 admin_bp.route('/time')(get_time)
@@ -44,3 +45,9 @@ def logout():
 @login_required
 def dashboard():
     return render_template('dashboard.html')
+
+
+@admin_bp.route('/migrations')
+@login_required
+def migrations():
+    make_migrations()

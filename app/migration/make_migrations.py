@@ -25,4 +25,4 @@ def make_migrations():
     create_notifications_table()
 
     create_root_user()
-    return print(f"Миграции выполнены успешно")
+    print(f"Миграции выполнены успешно")

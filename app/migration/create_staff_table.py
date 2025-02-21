@@ -18,7 +18,7 @@ def create_staff_table():
                         role INT NOT NULL DEFAULT 1,
                         status INT NOT NULL DEFAULT 1,
                         FOREIGN KEY(status) REFERENCES staff_status(id),
-                        status_comment TEXT NOT NULL DEFAULT '',
+                        status_comment TEXT,
                         telegram VARCHAR(255),
                         profit INT NOT NULL DEFAULT 0,
                         order_completed INT NOT NULL DEFAULT 0,
