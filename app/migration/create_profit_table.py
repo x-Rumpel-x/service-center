@@ -20,20 +20,6 @@ def create_profit_table():
                 );
             """)
 
-            # Оптимизация для частых запросов Grafana
-            cursor.execute("""
-                ALTER TABLE profit_metrics 
-                ADD INDEX time_index (time)
-            """)
-
-            # Проверка и инициализация тестовых данных
-            cursor.execute("SELECT COUNT(*) FROM profit_metrics")
-            if cursor.fetchone()[0] == 0:
-                cursor.execute("""
-                    INSERT INTO profit_metrics (amount, category, source)
-                    VALUES (%s, %s, %s)
-                """, (1000.00, 'initial', 'system'))
-
             connection.commit()
 
         except Error as e:
