@@ -44,10 +44,25 @@ def logout():
 @admin_bp.route('/')
 @login_required
 def dashboard():
+    """
+        Маршрут для дашборда.
+    """
     return render_template('dashboard.html')
+
+
+@admin_bp.route('/orders', methods=['GET', 'POST'])
+@login_required
+def orders():
+    """
+        Маршрут для заказов (ремонтов)
+    """
+    return render_template('orders.html')
 
 
 @admin_bp.route('/migrations')
 @login_required
 def migrations():
+    """
+        Маршрут для выполнения миграций.
+    """
     make_migrations()
