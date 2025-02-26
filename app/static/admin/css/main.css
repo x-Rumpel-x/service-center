@@ -95,8 +95,10 @@
 }
 
 .menu-icon {
-    width: 30px;
+    width: 28px;
+    height: 28px;
     stroke: #000;
+    flex-shrink: 0;
 }
 
 .custom-icon {
@@ -237,7 +239,12 @@
     }
 
     .nav-link.active .menu-icon {
+        transform: translateX(5px); /* Сдвиг через трансформацию */
         margin-left: 5px;
+    }
+
+    .staff-manage {
+        padding-left: 3px;
     }
 
     .menu {
