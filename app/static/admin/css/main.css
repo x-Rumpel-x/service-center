@@ -103,6 +103,10 @@
     height: calc(100% - 50px);
 }
 
+.gr-frame {
+    pointer-events: none;
+}
+
 /* 4K и огромные экраны */
 @media (min-width: 2560px) {
 
