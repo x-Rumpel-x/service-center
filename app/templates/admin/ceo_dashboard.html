@@ -2,10 +2,31 @@
 
 {% block content %}
     {% block ceo_content %}
-    <iframe
-        src="https://grafana.panelops.ru/d-solo/dee8lh4ua8buoe/profit?folderUid=cee8i2sttyxogc&orgId=1&timezone=browser&theme=light&panelId=1&__feature.dashboardSceneSolo"
-        class="grafana-profit"
-        frameborder="0">
-    </iframe>
+        <div class="graphics">
+            <div class="grafana">
+                <span class="gr-lable">Прибыль</span>
+                <iframe
+                        src="https://grafana.panelops.ru/d-solo/dee8lh4ua8buoe/profit?folderUid=cee8i2sttyxogc&orgId=1&timezone=browser&theme=light&panelId=1&__feature.dashboardSceneSolo"
+                        class="grafana-profit"
+                        frameborder="0">
+                </iframe>
+            </div>
+            <div class="grafana-right">
+                <div class="grafana">
+                    <span class="gr-lable">Количество продаж</span>
+                    <iframe src="https://grafana.panelops.ru/d-solo/bee8r96xxvhmoe/sales?folderUid=cee8i2sttyxogc&orgId=1&from=1740563997186&to=1740585597186&timezone=browser&theme=light&panelId=1&__feature.dashboardSceneSolo"
+                            class="grafana-sales"
+                            frameborder="0">
+                    </iframe>
+                </div>
+                <div class="grafana">
+                    <span class="gr-lable">Количество заказов</span>
+                    <iframe src="https://grafana.panelops.ru/d-solo/dee8sskzeu58gf/orders?folderUid=cee8i2sttyxogc&orgId=1&from=1740565032033&to=1740586632033&timezone=browser&theme=light&panelId=1&__feature.dashboardSceneSolo"
+                            class="grafana-sales"
+                            frameborder="0">
+                    </iframe>
+                </div>
+            </div>
+        </div>
     {% endblock %}
 {% endblock %}
