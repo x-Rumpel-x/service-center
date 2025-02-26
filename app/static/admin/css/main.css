@@ -236,6 +236,10 @@
         display: none;
     }
 
+    .menu-icon {
+        margin-left: 5px;
+    }
+
     .menu {
         width: 30px;
     }
@@ -247,4 +251,5 @@
     .content {
         width: calc(100% - 50px);
     }
+
 }

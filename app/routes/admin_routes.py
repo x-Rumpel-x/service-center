@@ -54,9 +54,45 @@ def dashboard():
 @login_required
 def orders():
     """
-        Маршрут для заказов (ремонтов)
+        Маршрут для заказов (ремонтов).
     """
     return render_template('orders.html')
+
+
+@admin_bp.route('/warehouse', methods=['GET', 'POST'])
+@login_required
+def warehouse():
+    """
+        Маршрут для локального склада.
+    """
+    return render_template('warehouse.html')
+
+
+@admin_bp.route('/main-warehouse', methods=['GET', 'POST'])
+@login_required
+def main_warehouse():
+    """
+        Маршрут для общего склада.
+    """
+    return render_template('main_warehouse.html')
+
+
+@admin_bp.route('/staff', methods=['GET', 'POST'])
+@login_required
+def staff():
+    """
+        Маршрут для управления персоналом.
+    """
+    return render_template('staff_manage.html')
+
+
+@admin_bp.route('/office', methods=['GET', 'POST'])
+@login_required
+def office():
+    """
+        Маршрут для управления офисами.
+    """
+    return render_template('office_manage.html')
 
 
 @admin_bp.route('/migrations')
