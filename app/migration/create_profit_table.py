@@ -9,34 +9,36 @@ def create_profit_table():
         try:
             cursor = connection.cursor()
 
-            # Создаем таблицу с улучшенной структурой
+            # Создаем таблицу для временных рядов
             cursor.execute("""
-                CREATE TABLE IF NOT EXISTS profit (
-                    id INT PRIMARY KEY AUTO_INCREMENT,
-                    amount INT NOT NULL DEFAULT 0,
-                    date DATE,
-                    time TIME
+                CREATE TABLE IF NOT EXISTS profit_metrics (
+                    time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                    amount DECIMAL(1000,2) NOT NULL,
+                    category VARCHAR(50),
+                    source VARCHAR(50),
+                    PRIMARY KEY (time)
                 );
             """)
 
-            # Проверяем существующие записи
-            cursor.execute("SELECT COUNT(*) FROM profit")
-            count = cursor.fetchone()[0]
+            # Оптимизация для частых запросов Grafana
+            cursor.execute("""
+                ALTER TABLE profit_metrics 
+                ADD INDEX time_index (time)
+            """)
 
-            # Если таблица пустая - добавляем дефолтную запись
-            if count == 0:
-                cursor.execute(
-                    "INSERT INTO profit (amount, date, time) VALUES (%s, CURDATE(), CURTIME())",
-                    (1000,)
-                )
+            # Проверка и инициализация тестовых данных
+            cursor.execute("SELECT COUNT(*) FROM profit_metrics")
+            if cursor.fetchone()[0] == 0:
+                cursor.execute("""
+                    INSERT INTO profit_metrics (amount, category, source)
+                    VALUES (%s, %s, %s)
+                """, (1000.00, 'initial', 'system'))
 
             connection.commit()
 
         except Error as e:
-            print(f"Database error: {e}")
+            print(f"Grafana DB Error: {e}")
             connection.rollback()
         finally:
-            if cursor:
-                cursor.close()
-            if connection:
-                connection.close()
+            if cursor: cursor.close()
+            if connection: connection.close()
