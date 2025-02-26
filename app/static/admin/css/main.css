@@ -236,7 +236,7 @@
         display: none;
     }
 
-    .menu-icon {
+    .nav-link.active .menu-icon {
         margin-left: 5px;
     }
 
