@@ -14,7 +14,8 @@ def create_profit_table():
                 CREATE TABLE IF NOT EXISTS profit (
                     id INT PRIMARY KEY AUTO_INCREMENT,
                     amount INT NOT NULL DEFAULT 0,
-                    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+                    date DATE,
+                    time TIME
                 );
             """)
 
@@ -25,7 +26,7 @@ def create_profit_table():
             # Если таблица пустая - добавляем дефолтную запись
             if count == 0:
                 cursor.execute(
-                    "INSERT INTO profit (amount) VALUES (%s)",
+                    "INSERT INTO profit (amount, date, time) VALUES (%s, CURDATE(), CURTIME())",
                     (1000,)
                 )
 
