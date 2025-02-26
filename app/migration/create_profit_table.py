@@ -13,7 +13,7 @@ def create_profit_table():
             cursor.execute("""
                 CREATE TABLE IF NOT EXISTS profit_metrics (
                     time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                    amount DECIMAL(1000,2) NOT NULL,
+                    amount DECIMAL(65,2) NOT NULL,
                     category VARCHAR(50),
                     source VARCHAR(50),
                     PRIMARY KEY (time)
