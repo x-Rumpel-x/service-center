@@ -9,6 +9,7 @@ from .create_order_status_table import create_order_status_table
 from .create_orders_table import create_orders_table
 from .create_clients_table import create_clients_table
 from .create_notifications_table import create_notifications_table
+from .create_profit_table import create_profit_table
 
 
 def make_migrations():
@@ -23,6 +24,7 @@ def make_migrations():
     create_orders_table()
     create_clients_table()
     create_notifications_table()
+    create_profit_table()
 
     create_root_user()
     print(f"Миграции выполнены успешно")
