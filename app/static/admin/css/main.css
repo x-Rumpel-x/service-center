@@ -61,6 +61,10 @@
     z-index: 2;
 }
 
+.staff-manage {
+    padding-left: 3px;
+}
+
 .block-logo {
     display: flex;
     flex-wrap: nowrap;
@@ -99,6 +103,12 @@
     height: 28px;
     stroke: #000;
     flex-shrink: 0;
+}
+
+.hide-menu-btn {
+    width: 28px;
+    height: 28px;
+    stroke: black;
 }
 
 .custom-icon {
@@ -203,6 +213,64 @@
 
 /* Планшеты (альбомная ориентация) */
 @media (min-width: 768px) and (max-width: 1024px) {
+    .header {
+        width: calc(100vw - 250px);
+    }
+
+    .notification-block {
+        margin-top: 6px;
+    }
+
+    .badge {
+        height: 14px;
+        width: 14px;
+        padding: 1.5px !important;
+        margin: -10px -8px;
+        font-size: 10px !important;
+    }
+
+    .left-nav {
+        width: 250px;
+    }
+
+    .nav-item {
+        width: 250px;
+    }
+
+    .logo {
+        width: 80px !important;
+        height: 80px !important;
+        margin: -4px 0 25px -25px;
+    }
+
+    .logo-text {
+        display: flex;
+        flex: none;
+        margin-top: 22px;
+        font-size: large;
+    }
+
+    .menu {
+        width: 30px;
+    }
+
+    .nav-link {
+        display: flex !important;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .left-menu-text {
+        flex: none;
+    }
+
+    .content {
+        width: calc(100% - 250px);
+    }
+}
+
+/* Особые стили для горизонтальных мобильных устройств */
+@media screen and (orientation: landscape) and (max-width: 767px) {
 
 }
 
@@ -243,10 +311,6 @@
         margin-left: 5px;
     }
 
-    .staff-manage {
-        padding-left: 3px;
-    }
-
     .menu {
         width: 30px;
     }
@@ -255,8 +319,11 @@
         display: none;
     }
 
+    .link-menu {
+        display: none;
+    }
+
     .content {
         width: calc(100% - 50px);
     }
-
 }
